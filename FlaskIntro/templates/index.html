@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%block head%}{%endblock%}
+
+{%block body%}
+
+<h1>Cloud Computing</h1>
+<form action="/search" method="POST">
+    <input type="text" name="searchName" placeholder="Search query" required>
+    <button type="submit">Search</button>
+</form>
+
+<h1>Image Result</h1>
+    {% if imgLink %}
+        <img src="{{ imgLink }}" alt="Image">
+    {% else %}
+        <p>No image found.</p>
+    {% endif %}
+
+    <form action="/money" method="POST">
+        <input type="number" name="number1" placeholder="Search query" required>
+        <input type="number" name="number2" placeholder="Search query" required>
+        <button type="submit">Check</button>
+    </form>
+
+    <h1>Image Money in Range Result</h1>
+    {% for imgVal in linkVals %}
+        <img src="{{ imgVal }}" alt="Image">
+    {% endfor %}
+
+{%endblock%}
