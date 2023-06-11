@@ -5,8 +5,9 @@
 {%block body%}
 
 <h1>Cloud Computing</h1>
+    <h1>----------------------------------------------------------------------------------------------</h1>
 <form action="/search" method="POST">
-    <input type="text" name="searchName" placeholder="Search query" required>
+    Enter Name : <input type="text" name="searchName" placeholder="Search query" required>
     <button type="submit">Search</button>
 </form>
 
@@ -16,7 +17,7 @@
     {% else %}
         <p>No image found.</p>
     {% endif %}
-
+<h1>----------------------------------------------------------------------------------------------</h1>
     <form action="/money" method="POST">
         <input type="number" name="number1" placeholder="Search query" required>
         <input type="number" name="number2" placeholder="Search query" required>
@@ -27,5 +28,49 @@
     {% for imgVal in linkVals %}
         <img src="{{ imgVal }}" alt="Image">
     {% endfor %}
+<h1>----------------------------------------------------------------------------------------------</h1>
+    <h1>Upload new Image to the user</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+
+        Name: <input type="text" name="name">
+        Image: <input type="file" name="img">
+        <input type="submit" value="Upload">
+    </form>
+    {% if msg %}
+    <h1>Success</h1>
+    {% endif %}
+<h1>----------------------------------------------------------------------------------------------</h1>
+    <h1>Delete User by name</h1>
+    <form action="/delete" method="POST" enctype="multipart/form-data">
+
+        Name: <input type="text" name="nameDelete">
+        <input type="submit" value="Upload">
+    </form>
+    {% if msg3 %}
+    <h1>Deleted successfully!!!!</h1>
+    {% endif %}
+<h1>----------------------------------------------------------------------------------------------</h1>
+    <h1>Change User by Description</h1>
+    <form action="/change" method="POST" enctype="multipart/form-data">
+
+        Name: <input type="text" name="nameChange">
+        Description: <input type="text" name="descript">
+        <input type="submit" value="Change">
+    </form>
+    {% if msg4 %}
+    <h1>Changed Keywords successfully!!!!</h1>
+    {% endif %}
+<h1>----------------------------------------------------------------------------------------------</h1>
+    <h1>Change Salary by Name</h1>
+    <form action="/salary" method="POST" enctype="multipart/form-data">
+
+        Name: <input type="text" name="nameSal">
+        Salary: <input type="number" name="salary">
+        <input type="submit" value="Change">
+    </form>
+    {% if msg5 %}
+    <h1>Changed Salary successfully!!!!</h1>
+    {% endif %}
+<h1>----------------------------------------------------------------------------------------------</h1>
 
 {%endblock%}
