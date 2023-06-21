@@ -4,8 +4,8 @@ from azure.storage.blob import BlobServiceClient
 
 app = Flask(__name__)
 
-connection = pyodbc.connect(
-    'Driver={ODBC Driver 18 for SQL Server};Server=tcp:ccbdserver2.database.windows.net,1433;Database=CCBD;Uid=abr2435;Pwd=UTApass3;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30')
+
+connection = pyodbc.connect('Driver={ODBC Driver 18 for SQL Server};Server=tcp:ccbdserver1.database.windows.net,1433;Database=CCBD;Uid=abr2435;Pwd=UTApass3;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30')
 
 cursor = connection.cursor()
 
@@ -13,7 +13,7 @@ cursor = connection.cursor()
 @app.route("/")
 def index():
     cursor = connection.cursor()
-    cursor.execute("select * from dbo.[people]")
+    cursor.execute("select * from dbo.[city]")
     data = cursor.fetchall()
     print("length = ", len(data))
     return render_template('index.html')
